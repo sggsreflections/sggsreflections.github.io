@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
- <url><loc>https://sggsreflections.com/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
- <url><loc>https://sggsreflections.com/reader.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
- <url><loc>https://sggsreflections.com/introduction.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
- <url><loc>https://sggsreflections.com/foreword.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+ <url><loc>https://sggsreflections.github.io/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+ <url><loc>https://sggsreflections.github.io/reader.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+ <url><loc>https://sggsreflections.github.io/introduction.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+ <url><loc>https://sggsreflections.github.io/foreword.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
 </urlset>

@@ -17,3 +17,6 @@ Reader search scans embedded PDF text in the visitor's browser, in page order, a
 
 PERFORMANCE
 PDF.js is loaded from cdnjs, so the reader requires internet access. PDF is fetched as a static asset and rendered on demand. GitHub Pages limits published site size to 1 GB; individual Git objects over 100 MB are rejected. This PDF is below 100 MB.
+
+
+Updated edition: colorful responsive styling, author portrait (assets/author.png), and a two-page responsive flipbook reader with page navigation, zoom, fullscreen, PDF download, and browser-side text search. Canonical URLs and sitemap use https://sggsreflections.github.io/. The flip effect is a lightweight CSS transition, not a heavy photorealistic page-curl engine. Search requires embedded PDF text; image-only scanned text is not OCR searchable.

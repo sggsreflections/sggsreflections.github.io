@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://sggsreflections.com/sitemap.xml
+Sitemap: https://sggsreflections.github.io/sitemap.xml
