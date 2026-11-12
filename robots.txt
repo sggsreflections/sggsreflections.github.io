@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mehandi10.github.io/sggsreflections/sitemap.xml
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Single-Page Reader | Reflections of Sri Guru Granth Sahib</title>
+  <meta name="description" content="Single-page high-resolution PDF reading interface for Reflections of Sri Guru Granth Sahib and page-wise Gurbani segments.">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <meta name="theme-color" content="#0e2a47">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&family=Mukta+Mahee:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- PDF.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="reader-body">
+
+  <!-- ==========================================================================
+       READER TOP TOOLBAR
+       ========================================================================== -->
+  <header class="reader-top-bar" role="banner">
+    <div class="reader-bar-left">
+      <a href="index.html#index" class="reader-return-btn" title="Return to Gurbani Index (Esc)">
+        <i class="fas fa-arrow-left"></i> <span>Return to Index</span>
+      </a>
+      <div class="reader-meta-title-box">
+        <div id="reader-title-primary" class="reader-title-primary">Loading Scripture...</div>
+        <div id="reader-title-secondary" class="reader-title-secondary">Please wait...</div>
+      </div>
+    </div>
+
+    <!-- Segment Switcher for Multi-Part Sections -->
+    <div class="reader-bar-center">
+      <div id="segment-selector-wrapper" class="segment-selector-wrapper" style="display: none;">
+        <label for="reader-part-select" class="segment-label"><i class="fas fa-layer-group"></i> Segment:</label>
+        <select id="reader-part-select" class="reader-part-select" title="Switch Segment"></select>
+      </div>
+    </div>
+
+    <div class="reader-bar-right">
+      <button id="reader-theme-btn" class="reader-action-btn" title="Toggle Theme (Light / Sepia / Dark)">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button id="reader-fullscreen-btn" class="reader-action-btn" title="Toggle Fullscreen (F)">
+        <i class="fas fa-expand"></i>
+      </button>
+      <a id="reader-download-btn" href="#" download class="reader-action-btn" title="Download Source PDF">
+        <i class="fas fa-download"></i> <span>Download</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       READER CONTROLS BAR (SINGLE-PAGE PAGINATION & ZOOM)
+       ========================================================================== -->
+  <nav class="reader-controls-bar" aria-label="Reading Controls">
+    <div class="controls-group-pagination">
+      <button id="btn-prev-page" class="reader-nav-btn" title="Previous Page (Left Arrow)">
+        <i class="fas fa-chevron-left"></i> <span>Previous</span>
+      </button>
+
+      <div class="page-counter-box">
+        <span>Page</span>
+        <input type="number" id="input-page-num" class="input-page-num" min="1" value="1" aria-label="Current Page">
+        <span>of <strong id="span-total-pages">1</strong></span>
+        <button id="btn-jump-page" class="btn-jump-page" title="Go to Page">Go</button>
+      </div>
+
+      <button id="btn-next-page" class="reader-nav-btn" title="Next Page (Right Arrow)">
+        <span>Next</span> <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <!-- Zoom Controls -->
+    <div class="controls-group-zoom">
+      <button id="btn-zoom-out" class="reader-zoom-btn" title="Zoom Out (-)">
+        <i class="fas fa-search-minus"></i>
+      </button>
+      <span id="span-zoom-level" class="zoom-level-indicator">100%</span>
+      <button id="btn-zoom-in" class="reader-zoom-btn" title="Zoom In (+)">
+        <i class="fas fa-search-plus"></i>
+      </button>
+      <button id="btn-zoom-fit-width" class="reader-zoom-btn" title="Fit to Width">
+        <i class="fas fa-arrows-alt-h"></i> Fit Width
+      </button>
+      <button id="btn-zoom-fit-page" class="reader-zoom-btn" title="Fit Page Height">
+        <i class="fas fa-arrows-alt-v"></i> Fit Page
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       SINGLE PAGE VIEWPORT
+       ========================================================================== -->
+  <main id="reader-viewport" class="reader-viewport single-page-mode" role="main">
+    <div id="reader-loading-overlay" class="reader-loading-overlay">
+      <div class="spinner"></div>
+      <div id="loading-message">Rendering Page...</div>
+    </div>
+
+    <!-- Notice / Boundary Toast Alert -->
+    <div id="reader-toast" class="reader-toast" role="status" aria-live="polite"></div>
+
+    <!-- The Single Page Canvas Viewport -->
+    <div id="canvas-wrapper" class="canvas-wrapper">
+      <canvas id="pdf-single-canvas" class="pdf-single-canvas"></canvas>
+    </div>
+
+    <!-- Fallback iframe if PDF.js is unavailable -->
+    <iframe id="reader-fallback-frame" class="reader-fallback-frame" style="display:none;" title="Fallback Reader"></iframe>
+  </main>
+
+  <!-- Mobile Bottom Swipe Hint -->
+  <div class="mobile-swipe-hint">
+    <i class="fas fa-hand-point-up"></i> Swipe left or right to change pages &bull; Double-tap or pinch to zoom
+  </div>
+
+  <script src="gurbani_catalog.js"></script>
+  <script src="reader_core.js"></script>
+</body>
+</html>
+

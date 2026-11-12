@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7D070"/>
+      <stop offset="50%" stop-color="#C59A3F"/>
+      <stop offset="100%" stop-color="#8E6A21"/>
+    </linearGradient>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0E2A47"/>
+      <stop offset="100%" stop-color="#071626"/>
+    </radialGradient>
+  </defs>
+  <circle cx="50" cy="50" r="48" fill="url(#bg)" stroke="url(#gold)" stroke-width="3"/>
+  <text x="50" y="66" font-family="'Mukta Mahee', 'Noto Sans Gurmukhi', 'Segoe UI', Arial, sans-serif" font-size="52" font-weight="bold" fill="url(#gold)" text-anchor="middle">ੴ</text>
+</svg>
+

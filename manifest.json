@@ -1,0 +1,18 @@
+{
+  "name": "Reflections of Sri Guru Granth Sahib",
+  "short_name": "SGGS Reflections",
+  "description": "English Translation and Commentary of Sri Guru Granth Sahib by Prof. Devinder Singh Sekhon",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0B1D33",
+  "theme_color": "#0B1D33",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
+

@@ -1,0 +1,21 @@
+# Sensitive files
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Temporary files
+*.log
+*.tmp
+*.cache
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor settings
+.vscode/
+.idea/
